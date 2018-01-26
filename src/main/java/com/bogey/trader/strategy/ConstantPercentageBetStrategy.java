@@ -34,6 +34,6 @@ public class ConstantPercentageBetStrategy implements Strategy {
 
     @Override
     public String getStrategyName() {
-        return "Constant Percentage of " + percentage + " of bankroll Strategy";
+        return "Constant p=" + percentage + " of bankroll";
     }
 }

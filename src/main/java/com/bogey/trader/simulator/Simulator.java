@@ -119,6 +119,8 @@ public class Simulator {
                 .meanEndingBankrolls(meanEndingBankrolls)
                 .highestBankroll(highestBankroll)
                 .evenOrInTheMoneyFrequency(evenOrInTheMoneyFrequency)
+                .strategies(strategyList)
+                .gameOfChance(gameOfChance)
                 .build();
     }
 

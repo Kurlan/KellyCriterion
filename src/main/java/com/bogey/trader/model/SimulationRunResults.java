@@ -1,10 +1,12 @@
 package com.bogey.trader.model;
 
+import com.bogey.trader.simulator.games.GameOfChance;
 import com.bogey.trader.strategy.Strategy;
 import lombok.Builder;
 import lombok.Value;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 @Value
@@ -16,5 +18,7 @@ public class SimulationRunResults {
     private final Map<Strategy, Integer> numberOfBusts;
     private final Map<Strategy, Integer> evenOrInTheMoneyFrequency;
     private final Map<Strategy, BigDecimal> highestBankroll;
+    private final GameOfChance gameOfChance;
+    private final List<Strategy> strategies;
 
 }
