@@ -22,6 +22,26 @@
             <version>23.6-jre</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.netflix.hollow</groupId>
+            <artifactId>hollow</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hollow</groupId>
+            <artifactId>hollow-diff-ui</artifactId>
+            <version>2.6.8</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hollow</groupId>
+            <artifactId>hollow-explorer-ui</artifactId>
+            <version>2.6.8</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
