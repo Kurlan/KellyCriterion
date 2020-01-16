@@ -42,6 +42,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.10.v20180503</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

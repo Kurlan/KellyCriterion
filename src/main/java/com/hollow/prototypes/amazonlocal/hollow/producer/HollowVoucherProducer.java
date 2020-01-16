@@ -14,7 +14,7 @@ import com.netflix.hollow.api.producer.fs.HollowFilesystemPublisher;
 public class HollowVoucherProducer implements Runnable {
 
     public static final String SCRATCH_DIR = System.getProperty("java.io.tmpdir");
-    private static final long MIN_TIME_BETWEEN_CYCLES = 10000;
+    private static final long MIN_TIME_BETWEEN_CYCLES = 1000;
 
     private final VoucherPool voucherPool;
 

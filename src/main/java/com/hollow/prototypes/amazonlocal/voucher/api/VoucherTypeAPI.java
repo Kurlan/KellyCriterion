@@ -26,26 +26,15 @@ public class VoucherTypeAPI extends HollowObjectTypeAPI {
         return getAPI().getStringTypeAPI();
     }
 
-    public int getCustomerId(int ordinal) {
+    public int getCustomerIdOrdinal(int ordinal) {
         if(fieldIndex[1] == -1)
-            return missingDataHandler().handleInt("Voucher", ordinal, "customerId");
-        return getTypeDataAccess().readInt(ordinal, fieldIndex[1]);
+            return missingDataHandler().handleReferencedOrdinal("Voucher", ordinal, "customerId");
+        return getTypeDataAccess().readOrdinal(ordinal, fieldIndex[1]);
     }
 
-    public Integer getCustomerIdBoxed(int ordinal) {
-        int i;
-        if(fieldIndex[1] == -1) {
-            i = missingDataHandler().handleInt("Voucher", ordinal, "customerId");
-        } else {
-            boxedFieldAccessSampler.recordFieldAccess(fieldIndex[1]);
-            i = getTypeDataAccess().readInt(ordinal, fieldIndex[1]);
-        }
-        if(i == Integer.MIN_VALUE)
-            return null;
-        return Integer.valueOf(i);
+    public StringTypeAPI getCustomerIdTypeAPI() {
+        return getAPI().getStringTypeAPI();
     }
-
-
 
     public VoucherDelegateLookupImpl getDelegateLookupImpl() {
         return delegateLookupImpl;

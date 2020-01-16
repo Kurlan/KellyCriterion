@@ -17,12 +17,8 @@ public class VoucherDelegateLookupImpl extends HollowObjectAbstractDelegate impl
         return typeAPI.getVoucherIdOrdinal(ordinal);
     }
 
-    public int getCustomerId(int ordinal) {
-        return typeAPI.getCustomerId(ordinal);
-    }
-
-    public Integer getCustomerIdBoxed(int ordinal) {
-        return typeAPI.getCustomerIdBoxed(ordinal);
+    public int getCustomerIdOrdinal(int ordinal) {
+        return typeAPI.getCustomerIdOrdinal(ordinal);
     }
 
     public VoucherTypeAPI getTypeAPI() {

@@ -18,7 +18,7 @@ public class AmazonLocalActualSearchService implements VoucherSearchService {
     @Override
     public List<Voucher> getUnassignedVouchers() {
         List<Voucher> vouchers = voucherPool.getPool().stream()
-                .filter(voucher -> voucher.getCustomerId() == -1)
+                .filter(voucher -> voucher.getCustomerId().equals("-1"))
                 .limit(100).collect(Collectors.toList());
 
         Collections.shuffle(vouchers);

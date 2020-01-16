@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 public class CustomerOrder {
-    private final Integer customerId;
+    private final String customerId;
     private final Instant orderEnqueueTime;
     private Instant fulfillmentTime;
     private Voucher voucher;

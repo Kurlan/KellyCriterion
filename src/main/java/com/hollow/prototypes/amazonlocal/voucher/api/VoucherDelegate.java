@@ -8,9 +8,7 @@ public interface VoucherDelegate extends HollowObjectDelegate {
 
     public int getVoucherIdOrdinal(int ordinal);
 
-    public int getCustomerId(int ordinal);
-
-    public Integer getCustomerIdBoxed(int ordinal);
+    public int getCustomerIdOrdinal(int ordinal);
 
     public VoucherTypeAPI getTypeAPI();
 

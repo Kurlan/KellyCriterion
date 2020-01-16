@@ -38,6 +38,7 @@ public class HollowSimulation implements VoucherSimulation {
     private final List<Callable<LinkedList<CustomerOrder>>> workers;
     private final List<CustomerOrder> fulfilledOrders;
     private final HollowVoucherProducer hollowVoucherProducer;
+    private final HollowExplorerRunnable hollowExplorerRunnable;
 
     public HollowSimulation(int n, int fleetSize) {
         SimulationInputGenerator simulationInputGenerator = new SimulationInputGenerator();
@@ -58,8 +59,9 @@ public class HollowSimulation implements VoucherSimulation {
             workers.add(new HollowSimulationWorkerCallable(voucherPool, orderQueue, assignVoucherService));
         }
 
-        hollowProducerExecutor = Executors.newSingleThreadExecutor();
+        hollowProducerExecutor = Executors.newFixedThreadPool(2);
         hollowVoucherProducer = new HollowVoucherProducer(voucherPool);
+        hollowExplorerRunnable = new HollowExplorerRunnable();
     }
 
     @Override
@@ -68,13 +70,13 @@ public class HollowSimulation implements VoucherSimulation {
 
         try {
             hollowProducerExecutor.submit(hollowVoucherProducer);
+            hollowProducerExecutor.submit(hollowExplorerRunnable);
 
             List<Future<LinkedList<CustomerOrder>>> fulfilledOrdersFutures = fleetThreadExecutor.invokeAll(workers);
 
             for (Future<LinkedList<CustomerOrder>> fulfilledOrdersFuture : fulfilledOrdersFutures) {
                 fulfilledOrders.addAll(fulfilledOrdersFuture.get());
             }
-
 
         } catch(InterruptedException | ExecutionException e) {
                 e.printStackTrace();

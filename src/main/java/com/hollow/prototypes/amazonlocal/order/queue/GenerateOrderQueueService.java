@@ -10,10 +10,10 @@ public class GenerateOrderQueueService {
 
     public OrderQueue generateQueue(int n) {
         ConcurrentLinkedQueue<CustomerOrder> customerOrders = new ConcurrentLinkedQueue<>();
-        for (int i = 0; i < n; i++) {
+        for (Integer i = 0; i < n; i++) {
             customerOrders.offer(CustomerOrder
                     .builder()
-                    .customerId(i)
+                    .customerId(i.toString())
                     .orderEnqueueTime(Instant.now())
                     .searchTries(new AtomicInteger(0))
                     .assignmentTries(new AtomicInteger(0))

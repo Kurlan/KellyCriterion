@@ -25,7 +25,7 @@ public class HollowAssignVoucherService implements AssignVoucherService  {
     public synchronized boolean assign(CustomerOrder customerOrder, Voucher voucher) {
         String voucherId = voucher.getVoucherId();
         Voucher actualVoucher = voucherMap.get(voucherId);
-        if (actualVoucher.getCustomerId() != -1) {
+        if (!actualVoucher.getCustomerId().equals("-1")) {
             return false;
         }
         customerOrder.setFulfillmentTime(Instant.now());

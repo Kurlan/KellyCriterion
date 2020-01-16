@@ -9,7 +9,7 @@ public class RegularAssignVoucherService implements AssignVoucherService {
 
     @Override
     public synchronized boolean assign(CustomerOrder customerOrder, Voucher voucher) {
-        if (voucher.getCustomerId() != -1) {
+        if (!voucher.getCustomerId().equals("-1")) {
             return false;
         }
         customerOrder.setFulfillmentTime(Instant.now());

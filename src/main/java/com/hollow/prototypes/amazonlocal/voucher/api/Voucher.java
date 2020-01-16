@@ -1,9 +1,6 @@
 package com.hollow.prototypes.amazonlocal.voucher.api;
 
 import com.netflix.hollow.api.objects.HollowObject;
-import com.netflix.hollow.core.schema.HollowObjectSchema;
-
-import com.netflix.hollow.tools.stringifier.HollowRecordStringifier;
 
 @SuppressWarnings("all")
 public class Voucher extends HollowObject {
@@ -19,12 +16,11 @@ public class Voucher extends HollowObject {
         return  api().getHString(refOrdinal);
     }
 
-    public int getCustomerId() {
-        return delegate().getCustomerId(ordinal);
-    }
-
-    public Integer getCustomerIdBoxed() {
-        return delegate().getCustomerIdBoxed(ordinal);
+    public HString getCustomerId() {
+        int refOrdinal = delegate().getCustomerIdOrdinal(ordinal);
+        if(refOrdinal == -1)
+            return null;
+        return  api().getHString(refOrdinal);
     }
 
     public VoucherAPI api() {

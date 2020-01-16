@@ -12,7 +12,7 @@ public class GenerateVoucherPoolService {
             pool.add(Voucher
                     .builder()
                     .voucherId("Voucher-" + i)
-                    .customerId(-1)
+                    .customerId("-1")
                     .build());
         }
         return VoucherPool

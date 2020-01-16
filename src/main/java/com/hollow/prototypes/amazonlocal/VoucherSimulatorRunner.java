@@ -3,10 +3,10 @@ package com.hollow.prototypes.amazonlocal;
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
+import com.hollow.prototypes.amazonlocal.simulation.VoucherSimulation;
 import com.hollow.prototypes.amazonlocal.simulation.amazonlocal.AmazonLocalActualSimulation;
 import com.hollow.prototypes.amazonlocal.simulation.hollow.HollowSimulation;
 import com.hollow.prototypes.amazonlocal.simulation.linear.LinearSimulation;
-import com.hollow.prototypes.amazonlocal.simulation.VoucherSimulation;
 
 public class VoucherSimulatorRunner {
     // private static final int EXPERIMENT_SIZE = 1_000_000;;

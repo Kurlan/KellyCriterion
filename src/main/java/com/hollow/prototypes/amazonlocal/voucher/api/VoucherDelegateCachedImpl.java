@@ -10,12 +10,12 @@ import com.netflix.hollow.api.objects.delegate.HollowCachedDelegate;
 public class VoucherDelegateCachedImpl extends HollowObjectAbstractDelegate implements HollowCachedDelegate, VoucherDelegate {
 
     private final int voucherIdOrdinal;
-    private final Integer customerId;
+    private final int customerIdOrdinal;
     private VoucherTypeAPI typeAPI;
 
     public VoucherDelegateCachedImpl(VoucherTypeAPI typeAPI, int ordinal) {
         this.voucherIdOrdinal = typeAPI.getVoucherIdOrdinal(ordinal);
-        this.customerId = typeAPI.getCustomerIdBoxed(ordinal);
+        this.customerIdOrdinal = typeAPI.getCustomerIdOrdinal(ordinal);
         this.typeAPI = typeAPI;
     }
 
@@ -23,14 +23,8 @@ public class VoucherDelegateCachedImpl extends HollowObjectAbstractDelegate impl
         return voucherIdOrdinal;
     }
 
-    public int getCustomerId(int ordinal) {
-        if(customerId == null)
-            return Integer.MIN_VALUE;
-        return customerId.intValue();
-    }
-
-    public Integer getCustomerIdBoxed(int ordinal) {
-        return customerId;
+    public int getCustomerIdOrdinal(int ordinal) {
+        return customerIdOrdinal;
     }
 
     @Override
